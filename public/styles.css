@@ -1,0 +1,13 @@
+body {
+    background: #6aa1eb;
+  }
+
+.filteredList {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+
+}
+  
