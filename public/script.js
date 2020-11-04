@@ -23,11 +23,11 @@ function displayMatches() {
     const matchArray = findMatches(this.value, cities);
     const html = matchArray.map(place => {
         const regex = new RegExp(this.value, 'gi');
-        const cityName = place.city.replace(regex, `<span class=\"h1\">${this.value}</span>`);
-        const stateyName = place.state.replace(regex, `<span class=\"h1\">${this.value}</span>`);
+        const cityName = place.city.replace(regex, `<span class=\"hl\">${this.value}</span>`);
+        const stateName = place.state.replace(regex, `<span class=\"hl\">${this.value}</span>`);
         return `
             <li>
-                <span class="name">${cityName}, ${stateyName}</span>
+                <span class="name">${cityName}, ${stateName}</span>
                 <span class="population">${numberWithCommas(place.population)}</span>
             </li>
         `;
@@ -37,8 +37,8 @@ function displayMatches() {
     // console.log(matchArray);
 }
 
-const searchInput = document.querySelector(//CLASS NAME OF FORM);
-const suggestions = document.querySelector(//CLASS NAME OF UL UNDER FORM & INPUT);
+const searchInput = document.querySelector('.form');
+const suggestions = document.querySelector('.filteredList');
 
 searchInput.addEventListener('change', findMatches);
 searchInput.addEventListener('keyup', findMatches);
