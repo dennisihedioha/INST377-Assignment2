@@ -1,0 +1,14 @@
+body {
+    background: #6aa1eb;
+  }
+
+.filteredList {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+  font-family: 'Cinzel Decorative', cursive;
+  color: #2a2a2a;
+}
+  
