@@ -3,12 +3,32 @@ body {
   }
 
 .filteredList {
-    display: flex;
-    flex-direction: column;
+  
+  flex-wrap: wrap;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.searchInput{
+  flex-wrap: wrap;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 0 8px;
+  justify-content: space-between;
+  width: 80px;
 }
 
 h1 {
   font-family: 'Cinzel Decorative', cursive;
   color: #2a2a2a;
+  font-size: 4rem;
+  text-align: center;
+  text-shadow: 2px 2px 10px black;
+  font-weight: 80;
 }
+
+
+
+
   
