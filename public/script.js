@@ -29,7 +29,7 @@ function displayMatches() {
 }
 
 const searchInput = document.querySelector('.searchInput');
-const suggestions = document.querySelector('.list');
+const suggestions = document.querySelector('.filterdList');
 
 searchInput.addEventListener('change', findMatches);
 searchInput.addEventListener('keyup', findMatches);
