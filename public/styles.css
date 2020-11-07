@@ -3,6 +3,7 @@ body {
   }
 
 .filteredList {
+  
   flex-wrap: wrap;
   align-items: center;
   display: flex;
@@ -17,15 +18,21 @@ body {
   justify-content: space-between;
   width: 600px;
   height: 40px;
+  margin: 0 auto;
+
 }
 
 h1 {
-  font-family: 'Cinzel Decorative', cursive;
+  font-family: 'Fredoka One', cursive;
   color: #2a2a2a;
   font-size: 40px;
   text-align: center;
-  text-shadow: 2px 2px 10px black;
   font-weight: 80;
+}
+
+.navigationBox{
+  background-image: linear-gradient(180deg, rgb(255, 0, 0), rgb(248, 232, 7));
+
 }
 
 
