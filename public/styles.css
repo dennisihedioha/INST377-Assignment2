@@ -3,7 +3,6 @@ body {
   }
 
 .filteredList {
-  
   flex-wrap: wrap;
   align-items: center;
   display: flex;
