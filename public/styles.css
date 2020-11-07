@@ -9,7 +9,7 @@ body {
   display: flex;
   flex-direction: column;
 }
-.searchInput > input{
+.searchInput{
   flex-wrap: wrap;
   align-items: center;
   display: flex;
