@@ -8,18 +8,16 @@ fetch(endpoint)
 
 console.log(restaurants);
 
-const searchInput = document.querySelector('.searchInput');
-const suggestions = document.querySelector('.filterdList');
-
 function findMatches(wordToMatch) {
     return restaurants.filter(place => {
         const regex = new RegExp(wordToMatch, 'gi');
-        return place.name.match(regex) || place.proper_hand_washing.match(regex)
+        return place.name.match(regex) || place.proper_hand_washing.match(regex);
     });
 }
 
 function displayMatches() {
     const matchArray = findMatches(this.value);
+    console.log("i'm trying to display matches!");
     const html = matchArray.map(place => {
         return `
             <li>
@@ -31,7 +29,12 @@ function displayMatches() {
         `;
     }).join('');
     suggestions.innerHTML = html;
+    console.log("I reached here.");
 }
+
+const searchInput = document.querySelector('.searchInput');
+const suggestions = document.querySelector('.filteredList');
 
 searchInput.addEventListener('change', findMatches);
 searchInput.addEventListener('keyup', findMatches);
+searchInput.addEventListener('keyup', displayMatches);
