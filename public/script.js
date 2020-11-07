@@ -1,44 +1,35 @@
 const endpoint = 'https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json';
 
-
-const cities = [];
+const restaurants = [];
 
 fetch(endpoint)
     .then(blob => blob.json())
-    .then(data => cities.push(...data))
+    .then(data => restaurants.push(...data));
 
-function findMatches(wordToMatch, cities) {
-    return cities.filter(place => {
-        // figure out if city or states matches what was searched
+function findMatches(wordToMatch, restaurants) {
+    return restaurants.filter(place => {
         const regex = new RegExp(wordToMatch, 'gi');
-        return place.city.match(regex) || place.state.match(regex) // WHERE TO PLACE WHAT FILTERS WE WANT
+        return place.name.match(regex) || place.proper_hand_washing.match(regex)
     });
 }
 
-function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-}
-
 function displayMatches() {
-    const matchArray = findMatches(this.value, cities);
+    const matchArray = findMatches(this.value, restaurants);
     const html = matchArray.map(place => {
-        const regex = new RegExp(this.value, 'gi');
-        const cityName = place.city.replace(regex, `<span class=\"hl\">${this.value}</span>`);
-        const stateName = place.state.replace(regex, `<span class=\"hl\">${this.value}</span>`);
         return `
             <li>
-                <span class="name">${cityName}, ${stateName}</span>
-                <span class="population">${numberWithCommas(place.population)}</span>
+                <span class="name">${place.name}</span><br>
+                <span class="address">${place.address_line_1}, ${place.address_line_2}, ${place.city}, ${place.state}, ${place.zip}</span><br>
+                <span class="category">${place.category}</span><br>
+                <span class="hand_washing">${place.proper_hand_washing}</span>
             </li>
         `;
     }).join('');
     suggestions.innerHTML = html;
-
-    // console.log(matchArray);
 }
 
-const searchInput = document.querySelector('.form');
-const suggestions = document.querySelector('.filteredList');
+const searchInput = document.querySelector('.searchInput');
+const suggestions = document.querySelector('.filterdList');
 
 searchInput.addEventListener('change', findMatches);
 searchInput.addEventListener('keyup', findMatches);
