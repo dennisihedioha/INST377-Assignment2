@@ -11,7 +11,7 @@ console.log(restaurants);
 function findMatches(wordToMatch) {
     return restaurants.filter(place => {
         const regex = new RegExp(wordToMatch, 'gi');
-        return place.name.match(regex) || place.proper_hand_washing.match(regex);
+        return place.name.match(regex) || place.owner.match(regex);
     });
 }
 
@@ -22,14 +22,17 @@ function displayMatches() {
         return `
             <li>
                 <span class="name">${place.name}</span><br>
+                <span class="hand_washing">${'Owner: ' + place.owner}</span><br>
                 <span class="address">${place.address_line_1}, ${place.address_line_2}, ${place.city}, ${place.state}, ${place.zip}</span><br>
                 <span class="category">${place.category}</span><br>
-                <span class="hand_washing">${place.proper_hand_washing}</span>
+                <span class="hand_washing">${'Hand Washing: ' + place.proper_hand_washing}</span>
             </li>
         `;
     }).join('');
     suggestions.innerHTML = html;
     console.log("I reached here.");
+
+
 }
 
 const searchInput = document.querySelector('.searchInput');
