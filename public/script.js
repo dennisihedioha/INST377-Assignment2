@@ -6,7 +6,12 @@ fetch(endpoint)
     .then(blob => blob.json())
     .then(data => restaurants.push(...data));
 
-function findMatches(wordToMatch, restaurants) {
+console.log(restaurants);
+
+const searchInput = document.querySelector('.searchInput');
+const suggestions = document.querySelector('.filterdList');
+
+function findMatches(wordToMatch) {
     return restaurants.filter(place => {
         const regex = new RegExp(wordToMatch, 'gi');
         return place.name.match(regex) || place.proper_hand_washing.match(regex)
@@ -14,7 +19,7 @@ function findMatches(wordToMatch, restaurants) {
 }
 
 function displayMatches() {
-    const matchArray = findMatches(this.value, restaurants);
+    const matchArray = findMatches(this.value);
     const html = matchArray.map(place => {
         return `
             <li>
@@ -27,9 +32,6 @@ function displayMatches() {
     }).join('');
     suggestions.innerHTML = html;
 }
-
-const searchInput = document.querySelector('.searchInput');
-const suggestions = document.querySelector('.filterdList');
 
 searchInput.addEventListener('change', findMatches);
 searchInput.addEventListener('keyup', findMatches);
