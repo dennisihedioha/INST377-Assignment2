@@ -33,6 +33,12 @@ body {
   display: flex;
   flex-direction: column;
   font-family: 'Open Sans';
+  font-size: 15px;
+}
+
+.listItem {
+  background: linear-gradient(#E66465, #923EDB);
+  margin: 0 0 10px 0;
 }
 
 
